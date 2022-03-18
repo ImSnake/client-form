@@ -1,17 +1,363 @@
 <!DOCTYPE html>
-<html lang="">
+<html lang="ru" id="connection" class="elzTheme-device hydraLoader">
+
   <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+	  <meta charset="UTF-8">
+	  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	  <meta name="format-detection" content="telephone=no">
+	  <meta name="mobile-web-app-capable" content="yes">
+	  <title><%= htmlWebpackPlugin.options.title %></title>
     <link rel="icon" href="<%= BASE_URL %>favicon.ico">
-    <title><%= htmlWebpackPlugin.options.title %></title>
+	  <link href="<%= BASE_URL %>style/hydra/auth.css" rel="stylesheet" type="text/css">
   </head>
-  <body>
+
+  <body class="cnnClientPage">
+
     <noscript>
       <strong>We're sorry but <%= htmlWebpackPlugin.options.title %> doesn't work properly without JavaScript enabled. Please enable it to continue.</strong>
     </noscript>
+
+<!--    <div class="authWrap">
+	    <div class="circle">
+		    <svg class="authLogo" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 188 35">
+			    <defs>
+				    <mask id="authMaskA" maskUnits="userSpaceOnUse" maskContentUnits="userSpaceOnUse" x="0" y="0" width="100%" height="100%">
+					    <g class="letter authLogoA1" fill="#ffffff">
+						    <path d="M13.9,19L19,8l5,11h6.8L22.2,0h-6.5L7.2,19H13.9z"/>
+						    <g>
+							    <path d="M33.3,24.8h-6.8l4.7,9.3H38L33.3,24.8z"/>
+							    <path d="M0,34h6.7l4.6-9.2l-6.7,0L0,34z"/>
+						    </g>
+					    </g>
+				    </mask>
+				    <linearGradient id="authLoadGradient" x1="0" x2="0" y1="0" y2="1">
+					    <stop offset="0%" stop-color="rgba(255, 255, 255, 0)"/>
+					    <stop offset="50%" stop-color="rgba(255, 255, 255, 0.25)"/>
+					    <stop offset="100%" stop-color="rgba(255, 255, 255, 0)"/>
+				    </linearGradient>
+			    </defs>
+
+			    <g class="letters fill-CC fn fn-primary-t">
+				    <g class="letter authLogoN1">
+					    <path d="M31,0v34h-5.5l-19-22.5V34H0V0h5.5l19,23.5V0H31z"/>
+				    </g>
+				    <g class="letter authLogoU1">
+					    <path d="M0,19.5V0h6.4v19c0,7.1,3.1,10.4,8.6,10.4s8.7-3.3,8.7-10.4V0H30v19.5C30,29.6,24.3,35,15,35C5.6,35,0,29.6,0,19.5z"/>
+				    </g>
+				    <g class="letter authLogoK1">
+					    <path d="M6.5,0H0v34h6.5V0z"/>
+					    <path d="M17,17L30.5,0h-7.4L11.5,14v6l12.8,14H32L17,17z"/>
+				    </g>
+				    <g class="letter authLogoA2">
+					    <path class="brandCap fill-CC fn fn-brand" d="M13.9,19L19,8l5,11h6.8L22.2,0h-6.5L7.2,19H13.9z"/>
+					    <g>
+						    <path d="M33.3,24.8h-6.8l4.7,9.3H38L33.3,24.8z"/>
+						    <path d="M0,34h6.7l4.6-9.2l-6.7,0L0,34z"/>
+					    </g>
+				    </g>
+				    <g class="letter loader" mask="url(#authMaskA)">
+					    <rect class="loaderBottom" opacity="0" x="0" y="22" width="100%" height="12.5">
+						    <animate attributeName="opacity" from="0" to="1" dur="0.25s" begin="0.1s" fill="freeze"/>
+					    </rect>
+					    <rect class="brandCap loaderHead fill-CC fn fn-brand" opacity="0" x="0" y="0" width="100%" height="22">
+						    <animate attributeName="opacity" from="0" to="1" dur="0.25s" begin="0.35s" fill="freeze"/>
+					    </rect>
+					    <rect class="loaderGradient" width="100%" height="100%" x="0" y="35" fill="url(#authLoadGradient)">
+						    <animateTransform attributeName="transform" type="translate" from="0 0" to="0 -70" begin="0.65s" dur="0.75s" repeatCount="indefinite"/>
+					    </rect>
+				    </g>
+			    </g>
+		    </svg>
+	    </div>
+
+    </div>-->
+
+    <div class="authWrap bg bg-primary">
+	    <div class="circle">
+
+		    <svg class="authLogo" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 118 36">
+			    <defs>
+				    <mask id="authMaskV" maskUnits="userSpaceOnUse" maskContentUnits="userSpaceOnUse" x="0" y="0" width="100%" height="100%">
+					    <g class="letter authLogoV2">
+						    <path fill="#ffffff" d="M36.97,28.22c-0.12,0.93-0.19,1.59-0.41,2.38c-0.28,1.01-0.8,1.9-1.5,2.7s-1.5,1.4-2.4,1.9c-1,0.5-2.3,0.8-3.81,0.8H3.41 c-0.5,0-0.9-0.1-1.3-0.3S1.3,35.2,1,34.9s-0.5-0.6-0.7-1S0,33,0,32.6V3.3C0,2.9,0.15,2.42,0.3,2C0.44,1.61,0.7,1.2,1,0.9 s0.61-0.47,1-0.6C2.52,0.13,2.91,0,3.41,0h22.34c0.9,0,1.8,0.2,2.6,0.4c1,0.3,1.9,0.8,2.6,1.4c0.8,0.7,1.5,1.5,2,2.5 s0.8,2.3,0.8,3.7v1.2c0,1.3-0.2,2.5-0.6,3.8c-0.4,1.4-1.1,2.7-1.9,3.8c0.8,0.5,1.5,1,2.1,1.6c0.7,0.7,1.3,1.4,1.7,2.2 c0.5,0.9,0.9,1.9,1.2,2.9c0.3,1.1,0.52,2.13,0.69,3.24C36.99,27.02,37.02,27.82,36.97,28.22z M30.3,26.77 c-0.07-0.81-0.25-1.57-0.55-2.27s-0.7-1.3-1.2-1.8s-1.1-0.9-1.8-1.1c-0.8-0.3-1.6-0.4-2.4-0.4H9.52v-6.5h11.92 c0.8,0,1.6-0.1,2.4-0.4c0.7-0.2,1.3-0.6,1.8-1.1s0.9-1.1,1.1-1.8c0.3-0.7,0.4-1.5,0.4-2.3c0-0.3,0-1,0-1.3c0-0.9-0.5-1.4-1.4-1.4 c-4.81,0-19.33,0-19.33,0v22.8c0,0,16.73,0,22.24,0c0.1,0,0.3,0.01,0.4,0c0.23-0.02,0.4-0.1,0.5-0.2s0.3-0.29,0.41-0.48 c0.16-0.27,0.22-0.39,0.29-0.68C30.34,27.51,30.32,27.07,30.3,26.77z"/>
+					    </g>
+				    </mask>
+				    <linearGradient id="authLoadGradient" x1="0" x2="0" y1="0" y2="1">
+					    <stop offset="0%" stop-color="rgba(255, 255, 255, 0)"/>
+					    <stop offset="50%" stop-color="rgba(255, 255, 255, 0.25)"/>
+					    <stop offset="100%" stop-color="rgba(255, 255, 255, 0)"/>
+				    </linearGradient>
+			    </defs>
+
+			    <g class="letters fill-CC fn fn-primary-t">
+				    <g class="letter authLogoV1">
+					    <path d="M36.97,28.22c-0.12,0.93-0.19,1.59-0.41,2.38c-0.28,1.01-0.8,1.9-1.5,2.7s-1.5,1.4-2.4,1.9c-1,0.5-2.3,0.8-3.81,0.8H3.41 c-0.5,0-0.9-0.1-1.3-0.3S1.3,35.2,1,34.9s-0.5-0.6-0.7-1S0,33,0,32.6V3.3C0,2.9,0.15,2.42,0.3,2C0.44,1.61,0.7,1.2,1,0.9 s0.61-0.47,1-0.6C2.52,0.13,2.91,0,3.41,0h22.34c0.9,0,1.8,0.2,2.6,0.4c1,0.3,1.9,0.8,2.6,1.4c0.8,0.7,1.5,1.5,2,2.5 s0.8,2.3,0.8,3.7v1.2c0,1.3-0.2,2.5-0.6,3.8c-0.4,1.4-1.1,2.7-1.9,3.8c0.8,0.5,1.5,1,2.1,1.6c0.7,0.7,1.3,1.4,1.7,2.2 c0.5,0.9,0.9,1.9,1.2,2.9c0.3,1.1,0.52,2.13,0.69,3.24C36.99,27.02,37.02,27.82,36.97,28.22z M30.3,26.77 c-0.07-0.81-0.25-1.57-0.55-2.27s-0.7-1.3-1.2-1.8s-1.1-0.9-1.8-1.1c-0.8-0.3-1.6-0.4-2.4-0.4H9.52v-6.5h11.92 c0.8,0,1.6-0.1,2.4-0.4c0.7-0.2,1.3-0.6,1.8-1.1s0.9-1.1,1.1-1.8c0.3-0.7,0.4-1.5,0.4-2.3c0-0.3,0-1,0-1.3c0-0.9-0.5-1.4-1.4-1.4 c-4.81,0-19.33,0-19.33,0v22.8c0,0,16.73,0,22.24,0c0.1,0,0.3,0.01,0.4,0c0.23-0.02,0.4-0.1,0.5-0.2s0.3-0.29,0.41-0.48 c0.16-0.27,0.22-0.39,0.29-0.68C30.34,27.51,30.32,27.07,30.3,26.77z"/>
+				    </g>
+				    <g class="letter authLogoK1">
+					    <path d="M3.3,0L3.3,0C1.5,0,0,1.5,0,3.3v29.4C0,34.5,1.5,36,3.3,36l0,0c1.8,0,3.2-1.5,3.2-3.3V3.3C6.5,1.5,5.1,0,3.3,0z"/>
+					    <path fill="#ED2D4A" d="M30.2,36c-0.9,0-1.7-0.3-2.3-1l-13-12.8c-0.6-0.6-1.5-1-2.3-1l0,0c-0.9,0-1.7-0.3-2.3-1c-0.6-0.6-1-1.4-1-2.3 v-0.1c0-0.9,0.3-1.7,1-2.3c0.7-0.6,1.5-1,2.3-1l0,0c0.4,0,0.9-0.1,1.3-0.2c0.4-0.2,0.8-0.4,1.1-0.7L27.9,1c0.6-0.6,1.5-1,2.3-1l0,0 c3,0,4.4,3.5,2.3,5.6L21.9,15.8c-0.3,0.3-0.6,0.7-0.7,1.1c-0.2,0.4-0.3,0.8-0.3,1.3c0,0.4,0.1,0.9,0.3,1.3s0.4,0.8,0.7,1.1 l10.6,9.9C34.6,32.4,33.1,36,30.2,36z"/>
+				    </g>
+				    <g class="letter loader fn fn-brand" mask="url(#authMaskV)">
+					    <rect opacity="0" x="0" y="0" width="100%" height="100%">
+						    <animate attributeName="opacity" from="0" to="1" dur="0.25s" begin="0.1s" fill="freeze"/>
+					    </rect>
+					    <rect class="loaderGradient" width="100%" height="100%" x="0" y="36" fill="url(#authLoadGradient)">
+						    <animateTransform attributeName="transform" type="translate" from="0 0" to="0 -72" begin="0.65s" dur="0.75s" repeatCount="indefinite"/>
+					    </rect>
+				    </g>
+			    </g>
+		    </svg>
+
+		    <svg class="authLogo" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 188 35" style="display: none;">
+			    <defs>
+				    <mask id="authMaskA" maskUnits="userSpaceOnUse" maskContentUnits="userSpaceOnUse" x="0" y="0" width="100%" height="100%">
+					    <g class="letter authLogoA1" fill="#ffffff">
+						    <path d="M13.9,19L19,8l5,11h6.8L22.2,0h-6.5L7.2,19H13.9z"/>
+						    <g>
+							    <path d="M33.3,24.8h-6.8l4.7,9.3H38L33.3,24.8z"/>
+							    <path d="M0,34h6.7l4.6-9.2l-6.7,0L0,34z"/>
+						    </g>
+					    </g>
+				    </mask>
+				    <linearGradient id="authLoadGradient" x1="0" x2="0" y1="0" y2="1">
+					    <stop offset="0%" stop-color="rgba(255, 255, 255, 0)"/>
+					    <stop offset="50%" stop-color="rgba(255, 255, 255, 0.25)"/>
+					    <stop offset="100%" stop-color="rgba(255, 255, 255, 0)"/>
+				    </linearGradient>
+			    </defs>
+
+			    <g class="letters fill-CC fn fn-primary-t">
+				    <g class="letter authLogoN1">
+					    <path d="M31,0v34h-5.5l-19-22.5V34H0V0h5.5l19,23.5V0H31z"/>
+				    </g>
+				    <g class="letter authLogoU1">
+					    <path d="M0,19.5V0h6.4v19c0,7.1,3.1,10.4,8.6,10.4s8.7-3.3,8.7-10.4V0H30v19.5C30,29.6,24.3,35,15,35C5.6,35,0,29.6,0,19.5z"/>
+				    </g>
+				    <g class="letter authLogoK1">
+					    <path d="M6.5,0H0v34h6.5V0z"/>
+					    <path d="M17,17L30.5,0h-7.4L11.5,14v6l12.8,14H32L17,17z"/>
+				    </g>
+				    <g class="letter authLogoA2">
+					    <path class="brandCap fill-CC fn fn-brand" d="M13.9,19L19,8l5,11h6.8L22.2,0h-6.5L7.2,19H13.9z"/>
+					    <g>
+						    <path d="M33.3,24.8h-6.8l4.7,9.3H38L33.3,24.8z"/>
+						    <path d="M0,34h6.7l4.6-9.2l-6.7,0L0,34z"/>
+					    </g>
+				    </g>
+				    <g class="letter loader" mask="url(#authMaskA)">
+					    <rect class="loaderBottom" opacity="0" x="0" y="22" width="100%" height="12.5">
+						    <animate attributeName="opacity" from="0" to="1" dur="0.25s" begin="0.1s" fill="freeze"/>
+					    </rect>
+					    <rect class="brandCap loaderHead fill-CC fn fn-brand" opacity="0" x="0" y="0" width="100%" height="22">
+						    <animate attributeName="opacity" from="0" to="1" dur="0.25s" begin="0.35s" fill="freeze"/>
+					    </rect>
+					    <rect class="loaderGradient" width="100%" height="100%" x="0" y="35" fill="url(#authLoadGradient)">
+						    <animateTransform attributeName="transform" type="translate" from="0 0" to="0 -70" begin="0.65s" dur="0.75s" repeatCount="indefinite"/>
+					    </rect>
+				    </g>
+			    </g>
+		    </svg>
+	    </div>
+
+	    <form class="authFormWrap">
+
+		    <!--<div class="elz authFormShow d-block al-center pB24 pT16">Авторизация</div>-->
+
+		    <div class="elz authFormShow d-block h80">
+			    <label class="elz d-grid grPos fn fnLInvD fn-primary-t fnL20 fnHovL10 fnFow-focus fnFowL0">
+
+				    <input type="email" value="" placeholder="Ваш логин" class="elz d-block grPin grY2 w100p borB2 h48 pH32 ellipsis trns2 invPssSib
+                br brLInvD br-primary brL-10 brHovL-20 brFoc-focus brFocL0
+                fn fn-primary-t" />
+
+				    <span class="elz d-flex grPin grY2 a-X borB2 evNone">
+                    <span class="elz p-rel d-flex a-X s24 trns2">
+                        <span class="elz p-rel d-block mskBef s16 cFillBef bgBef-CC" style="--elzMsk: url('https://lelouch.ru/uploads/icons/user.svg');"></span>
+                    </span>
+
+                    <span class="elz p-rel growZ d-flex a-PR">
+                        <span class="elz p-rel d-flex a-X r2 trns2 cur-help opHovOut bgHov bgHov-error fn fn-error fnHov-error-t">
+                            <span class="elz fn-8 bold al-right pH8 op0 opHovIn10 trns2 trnsVis oH ellipsis">Всё неплохо, но могло быть и лучше</span>
+                            <span class="elz p-rel d-flex a-X s24 r2 evAuto">
+                                <span class="elz p-rel d-block mskBef s16 cFillBef bgBef-CC" style="--elzMsk: url('https://lelouch.ru/uploads/icons/info.svg');"></span>
+                            </span>
+                        </span>
+                    </span>
+                </span>
+
+				    <span class="elz d-block fn-8 trns2 invPssLing">Ваш логин</span>
+
+			    </label>
+		    </div>
+
+		    <div class="elz authFormShow d-block h80">
+			    <label class="elz d-grid grPos fn fnLInvD fn-primary-t fnL20 fnHovL10 fnFow-focus fnFowL0">
+
+				    <input type="password" value="" placeholder="Ваш пароль" class="elz d-block grPin grY2 w100p borB2 h48 pH32 ellipsis trns2 invPssSib
+                br brLInvD br-primary brL-10 brHovL-20 brFoc-focus brFocL0
+                fn fn-primary-t" />
+
+				    <span class="elz d-flex grPin grY2 a-X borB2 evNone">
+                    <span class="elz p-rel d-flex a-X s24 trns2">
+                        <span class="elz p-rel d-block mskBef s16 cFillBef bgBef-CC" style="--elzMsk: url('https://lelouch.ru/uploads/icons/key.svg');"></span>
+                    </span>
+
+                    <span class="elz p-rel growZ d-flex a-PR">
+                        <span class="elz p-rel d-flex a-X r2 trns2 cur-help opHovOut bgHov bgHov-success fn fn-success fnHov-success-t">
+                            <span class="elz fn-8 bold al-right pH8 op0 opHovIn10 trns2 trnsVis oH ellipsis">Всё неплохо, но могло быть и лучше</span>
+                            <span class="elz p-rel d-flex a-X s24 r2 evAuto">
+                                <span class="elz p-rel d-block mskBef s16 cFillBef bgBef-CC" style="--elzMsk: url('https://lelouch.ru/uploads/icons/checkcircle.svg');"></span>
+                            </span>
+                        </span>
+                    </span>
+                </span>
+
+				    <span class="elz d-block fn-8 trns2 invPssLing">Ваш пароль</span>
+
+			    </label>
+		    </div>
+
+		    <div class="elz authFormShow d-block h48">
+			    <input type="submit" value="Авторизация" class="mV16 elz buttonTest d-flex a-X r3 h48 w100p fn-11 cur-pointer
+            bg bg-ok bgHovL3 bgActL-10 bgSelL-10 br brFD brLF-10 br-ok
+            fn fn-ok-t fnHovL10 fnSelL10 trnsStyle trns"/>
+		    </div>
+
+		    <div class="elz authFormShow d-block al-center mT24">
+			    <a class="elz underlineHov cur-pointer fn fn-link-inline fnHovL-10 opAct07" href="#">Поддержка</a>
+		    </div>
+
+	    </form>
+    </div>
+
+    <div class="authWrap" style="display: none;">
+	    <div class="circle">
+		    <svg class="authLogo" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 188 35">
+			    <defs>
+				    <mask id="authMaskA" maskUnits="userSpaceOnUse" maskContentUnits="userSpaceOnUse" x="0" y="0" width="100%" height="100%">
+					    <g class="letter authLogoA1" fill="#ffffff">
+						    <path d="M13.9,19L19,8l5,11h6.8L22.2,0h-6.5L7.2,19H13.9z"/>
+						    <g>
+							    <path d="M33.3,24.8h-6.8l4.7,9.3H38L33.3,24.8z"/>
+							    <path d="M0,34h6.7l4.6-9.2l-6.7,0L0,34z"/>
+						    </g>
+					    </g>
+				    </mask>
+				    <linearGradient id="authLoadGradient" x1="0" x2="0" y1="0" y2="1">
+					    <stop offset="0%" stop-color="rgba(255, 255, 255, 0)"/>
+					    <stop offset="50%" stop-color="rgba(255, 255, 255, 0.25)"/>
+					    <stop offset="100%" stop-color="rgba(255, 255, 255, 0)"/>
+				    </linearGradient>
+			    </defs>
+
+			    <g class="letters fill-CC fn fn-primary-t">
+				    <g class="letter authLogoN1">
+					    <path d="M31,0v34h-5.5l-19-22.5V34H0V0h5.5l19,23.5V0H31z"/>
+				    </g>
+				    <g class="letter authLogoU1">
+					    <path d="M0,19.5V0h6.4v19c0,7.1,3.1,10.4,8.6,10.4s8.7-3.3,8.7-10.4V0H30v19.5C30,29.6,24.3,35,15,35C5.6,35,0,29.6,0,19.5z"/>
+				    </g>
+				    <g class="letter authLogoK1">
+					    <path d="M6.5,0H0v34h6.5V0z"/>
+					    <path d="M17,17L30.5,0h-7.4L11.5,14v6l12.8,14H32L17,17z"/>
+				    </g>
+				    <g class="letter authLogoA2">
+					    <path class="brandCap fill-CC fn fn-brand" d="M13.9,19L19,8l5,11h6.8L22.2,0h-6.5L7.2,19H13.9z"/>
+					    <g>
+						    <path d="M33.3,24.8h-6.8l4.7,9.3H38L33.3,24.8z"/>
+						    <path d="M0,34h6.7l4.6-9.2l-6.7,0L0,34z"/>
+					    </g>
+				    </g>
+				    <g class="letter loader" mask="url(#authMaskA)">
+					    <rect class="loaderBottom" opacity="0" x="0" y="22" width="100%" height="12.5">
+						    <animate attributeName="opacity" from="0" to="1" dur="0.25s" begin="0.1s" fill="freeze"/>
+					    </rect>
+					    <rect class="brandCap loaderHead fill-CC fn fn-brand" opacity="0" x="0" y="0" width="100%" height="22">
+						    <animate attributeName="opacity" from="0" to="1" dur="0.25s" begin="0.35s" fill="freeze"/>
+					    </rect>
+					    <rect class="loaderGradient" width="100%" height="100%" x="0" y="35" fill="url(#authLoadGradient)">
+						    <animateTransform attributeName="transform" type="translate" from="0 0" to="0 -70" begin="0.65s" dur="0.75s" repeatCount="indefinite"/>
+					    </rect>
+				    </g>
+			    </g>
+		    </svg>
+	    </div>
+
+	    <form class="authFormWrap">
+
+		    <!--<div class="elz authFormShow d-block al-center pB24 pT16">Авторизация</div>-->
+
+		    <div class="elz authFormShow d-block h80">
+			    <label class="elz d-grid grPos fn fnLInvD fn-primary-t fnL20 fnHovL10 fnFow-focus fnFowL0">
+
+				    <input type="email" value="" placeholder="Ваш логин" class="elz d-block grPin grY2 w100p borB2 h48 pH32 ellipsis trns2 invPssSib
+                br brLInvD br-primary brL-10 brHovL-20 brFoc-focus brFocL0
+                fn fn-primary-t" />
+
+				    <span class="elz d-flex grPin grY2 a-X borB2 evNone">
+                    <span class="elz p-rel d-flex a-X s24 trns2">
+                        <span class="elz p-rel d-block mskBef s16 cFillBef bgBef-CC" style="--elzMsk: url('https://lelouch.ru/uploads/icons/user.svg');"></span>
+                    </span>
+
+                    <span class="elz p-rel growZ d-flex a-PR">
+                        <span class="elz p-rel d-flex a-X r2 trns2 cur-help opHovOut bgHov bgHov-error fn fn-error fnHov-error-t">
+                            <span class="elz fn-8 bold al-right pH8 op0 opHovIn10 trns2 trnsVis oH ellipsis">Всё неплохо, но могло быть и лучше</span>
+                            <span class="elz p-rel d-flex a-X s24 r2 evAuto">
+                                <span class="elz p-rel d-block mskBef s16 cFillBef bgBef-CC" style="--elzMsk: url('https://lelouch.ru/uploads/icons/info.svg');"></span>
+                            </span>
+                        </span>
+                    </span>
+                </span>
+
+				    <span class="elz d-block fn-8 trns2 invPssLing">Ваш логин</span>
+
+			    </label>
+		    </div>
+
+		    <div class="elz authFormShow d-block h80">
+			    <label class="elz d-grid grPos fn fnLInvD fn-primary-t fnL20 fnHovL10 fnFow-focus fnFowL0">
+
+				    <input type="password" value="" placeholder="Ваш пароль" class="elz d-block grPin grY2 w100p borB2 h48 pH32 ellipsis trns2 invPssSib
+                br brLInvD br-primary brL-10 brHovL-20 brFoc-focus brFocL0
+                fn fn-primary-t" />
+
+				    <span class="elz d-flex grPin grY2 a-X borB2 evNone">
+                    <span class="elz p-rel d-flex a-X s24 trns2">
+                        <span class="elz p-rel d-block mskBef s16 cFillBef bgBef-CC" style="--elzMsk: url('https://lelouch.ru/uploads/icons/key.svg');"></span>
+                    </span>
+
+                    <span class="elz p-rel growZ d-flex a-PR">
+                        <span class="elz p-rel d-flex a-X r2 trns2 cur-help opHovOut bgHov bgHov-success fn fn-success fnHov-success-t">
+                            <span class="elz fn-8 bold al-right pH8 op0 opHovIn10 trns2 trnsVis oH ellipsis">Всё неплохо, но могло быть и лучше</span>
+                            <span class="elz p-rel d-flex a-X s24 r2 evAuto">
+                                <span class="elz p-rel d-block mskBef s16 cFillBef bgBef-CC" style="--elzMsk: url('https://lelouch.ru/uploads/icons/checkcircle.svg');"></span>
+                            </span>
+                        </span>
+                    </span>
+                </span>
+
+				    <span class="elz d-block fn-8 trns2 invPssLing">Ваш пароль</span>
+
+			    </label>
+		    </div>
+
+		    <div class="elz authFormShow d-block h48">
+			    <input type="submit" value="Авторизация" class="mV16 elz buttonTest d-flex a-X r3 h48 w100p fn-11 cur-pointer
+            bg bg-ok bgHovL3 bgActL-10 bgSelL-10 br brFD brLF-10 br-ok
+            fn fn-ok-t fnHovL10 fnSelL10 trnsStyle trns"/>
+		    </div>
+
+		    <div class="elz authFormShow d-block al-center mT24">
+			    <a class="elz underlineHov cur-pointer fn fn-link-inline fnHovL-10 opAct07" href="#">Поддержка</a>
+		    </div>
+
+	    </form>
+    </div>
+
     <div id="app"></div>
-    <!-- built files will be auto injected -->
+
   </body>
+
+  <link href="<%= BASE_URL %>style/_compilation.css" rel="stylesheet" type="text/css">
+
 </html>
