@@ -20,7 +20,7 @@
 
 <script>
 export default {
-  name: "HeaderLogo"
+  name: "Header"
 }
 </script>
 

@@ -4,57 +4,54 @@ import EventService from "@/services/EventService";
 export default createStore({
 
   state: {
-    //appStates: {},
-    //userData: {},
+    orderId: '561361'
   },
 
   mutations: {
-    SET_STATE(state, data) {
-      state.appStates = data;
+    SET_CUSTOMER_DATA(state, data) {
+      state.customerData = data;
     },
 
-    SET_MEETING_DATA(state, data) {
-      state.meetingData = data;
+    SET_STATUSES(state, data) {
+      state.statuses = data;
     },
 
-    SET_USER_DATA(state, data) {
-      console.log('set user data');
-      state.userData = data;
+    UPDATE_ORDER_DETAILS(state, data) {
+      state.orderDetails = data;
     }
   },
 
   actions: {
-    fetchAppStates({ commit }) {
-      return EventService.getAppStates()
+    fetchConnectionStatuses({ commit }) {
+      return EventService.getConnectionStatuses()
         .then(response => {
-          commit('SET_STATE', response.data);
+          commit('SET_STATUSES', response.data);
         })
         .catch(error => {
           throw(error);
         });
     },
 
-    fetchUserData({ commit }) {
-      return EventService.getUserData()
+    fetchOrderDetails({ commit }, orderId) {
+      return EventService.getOrderDetails(orderId)
         .then(response => {
-          commit('SET_USER_DATA', response.data);
-          console.log('commit user data');
+          commit('UPDATE_ORDER_DETAILS', response.data);
         })
         .catch(error => {
           throw(error);
         });
     },
 
-    fetchMeetingData ({ commit }) {
-      return EventService.getMeetingData()
+    fetchCustomerData({ commit }) {
+      return EventService.getCustomerData()
         .then(response => {
-          commit('SET_MEETING_DATA', response.data);
-          console.log('commit meeting data');
+          commit('SET_CUSTOMER_DATA', response.data);
         })
         .catch(error => {
           throw(error);
         });
     }
+
   },
 
   modules: {

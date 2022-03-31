@@ -1,13 +1,53 @@
 {
-  "appStates":
+  "orderDetails": {
+    "connectionStatusId": "1",
+    "customerSDId": "104849",
+    "meetingData":
+      {
+        "responsibleName": "Давыдов Валерий Евгеньевич",
+        "phone": "+7 (963) 999-64-40",
+        "date": "16 марта 2022 г.",
+        "time": "14:00"
+      }
+  },
+  "connectionStatuses": [
     {
-      "first": 2,
-      "second": 2,
-      "third": 1,
-      "fourth": 0,
-      "fifth": 0
+      "statusId": "1",
+      "name": "",
+      "description": "Создана заявка",
+      "comment": "В ближайшее время мы назначим по вашей заявке сотрудника, ответственного за подключение",
+      "iconName": "question"
     },
-  "userData":
+    {
+      "statusId": "2",
+      "name": "",
+      "description": "Назначены дата и время подключения",
+      "comment": "Ожидайте специалиста для настройки подключения в указанный период",
+      "iconName": "cog"
+    },
+    {
+      "statusId": "3",
+      "name": "",
+      "description": "Специалист в пути",
+      "comment": "",
+      "iconName": "truck"
+    },
+    {
+      "statusId": "4",
+      "name": "",
+      "description": "Проводятся работы по подключению",
+      "comment": "",
+      "iconName": "hammer-wrench"
+    },
+    {
+      "statusId": "5",
+      "name": "",
+      "description": "Подключение выполнено",
+      "comment": "",
+      "iconName": "checkmark2"
+    }
+  ],
+  "customerData":
     {
       "name": "Дмитрий",
       "patronymic": "Вячеславович",
@@ -26,12 +66,5 @@
         "ufmsCode": "668-009",
         "registrationAddress": "г. Заречный, ул. Курчатова, дом. 27, корпус 3, кв. 42"
       }
-    },
-  "meetingData":
-    {
-      "fio": "Давыдов Валерий Евгеньевич",
-      "phone": "+7 (963) 999-64-40",
-      "date": "16 марта 2022 г.",
-      "time": "14:00"
     }
 }

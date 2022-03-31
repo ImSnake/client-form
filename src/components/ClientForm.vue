@@ -1,5 +1,4 @@
 <template>
-
   <div @input="defineSendButtonState" class="elz d-block">
     <div class="elz d-block mT48">
       <div class="elz cnnInfoCaption d-block bold pV8 mB16 fn18 borB1 br br-primary brL-10 brLInvD">Паспортные данные</div>
@@ -10,12 +9,12 @@
             <div class="elz d-block">Фамилия:</div>
           </div>
           <div class="elz d-block mL24">
-            <label :class="{evNone: finalState}" class="elz d-grid grPos fn fnLInvD fn-primary-t fnL20 fnHovL10 fnFow-focus fnFowL0">
-              <input v-model="user.surname" v-maska="$options._validation.word" type="text" placeholder="Иванов" class="elz d-block grPin grY2 w100p borB2 h40 ellipsis trns2 invPssSib br brLInvD br-primary brL-10 brHovL-20 brFoc-focus brFocL0 fn fn-primary-t"/>
+            <label class="elz d-grid grPos fn fnLInvD fn-primary-t fnL20 fnHovL10 fnFow-focus fnFowL0">
+              <input v-model="customer.surname" v-maska="validation.word" type="text" placeholder="Иванов" class="elz d-block grPin grY2 w100p borB2 h40 ellipsis trns2 invPssSib br brLInvD br-primary brL-10 brHovL-20 brFoc-focus brFocL0 fn fn-primary-t"/>
               <span class="elz d-flex grPin grY2 a-X borB2 evNone">
                 <span class="elz p-rel growZ d-flex a-PR">
-                  <span ref="surname" class="elz p-rel d-flex a-X s24 r2" :class="user.surname ? validationText(user.surname, 'classList') : ''">
-                    <span :class="user.surname ? ' bgBef-CC' : ''" :style="user.surname ? validationText(user.surname, 'icon'): ''" class="elz p-rel d-block mskBef s16 cFillBef"></span>
+                  <span ref="surname" class="elz p-rel d-flex a-X s24 r2" :class="customer.surname ? validationText(customer.surname, 'classList') : ''">
+                    <span :class="customer.surname ? ' bgBef-CC' : ''" :style="customer.surname ? validationText(customer.surname, 'icon'): ''" class="elz p-rel d-block mskBef s16 cFillBef"></span>
                   </span>
                 </span>
               </span>
@@ -29,12 +28,12 @@
             <div class="elz d-block">Имя:</div>
           </div>
           <div class="elz d-block mL24">
-            <label :class="{evNone: finalState}" class="elz d-grid grPos fn fnLInvD fn-primary-t fnL20 fnHovL10 fnFow-focus fnFowL0">
-              <input v-model="user.name" v-maska="$options._validation.word" type="text" placeholder="Иван" class="elz d-block grPin grY2 w100p borB2 h40 pR32 ellipsis trns2 invPssSib br brLInvD br-primary brL-10 brHovL-20 brFoc-focus brFocL0 fn fn-primary-t"/>
+            <label class="elz d-grid grPos fn fnLInvD fn-primary-t fnL20 fnHovL10 fnFow-focus fnFowL0">
+              <input v-model="customer.name" v-maska="validation.word" type="text" placeholder="Иван" class="elz d-block grPin grY2 w100p borB2 h40 pR32 ellipsis trns2 invPssSib br brLInvD br-primary brL-10 brHovL-20 brFoc-focus brFocL0 fn fn-primary-t"/>
               <span class="elz d-flex grPin grY2 a-X borB2 evNone">
                 <span class="elz p-rel growZ d-flex a-PR">
-                  <span ref="name" :class="user.name ? validationText(user.name, 'classList') : ''" class="elz p-rel d-flex a-X s24 r2">
-                    <span :class="user.name ? ' bgBef-CC' : ''" :style="user.name ? validationText(user.name, 'icon') : ''" class="elz p-rel d-block mskBef s16 cFillBef"></span>
+                  <span ref="name" :class="customer.name ? validationText(customer.name, 'classList') : ''" class="elz p-rel d-flex a-X s24 r2">
+                    <span :class="customer.name ? ' bgBef-CC' : ''" :style="customer.name ? validationText(customer.name, 'icon') : ''" class="elz p-rel d-block mskBef s16 cFillBef"></span>
                   </span>
                 </span>
               </span>
@@ -48,12 +47,12 @@
             <div class="elz d-block">Отчество:</div>
           </div>
           <div class="elz d-block mL24">
-            <label :class="{evNone: finalState}" class="elz d-grid grPos fn fnLInvD fn-primary-t fnL20 fnHovL10 fnFow-focus fnFowL0">
-              <input v-model="user.patronymic" type="text" placeholder="Иванович" class="elz d-block grPin grY2 w100p borB2 h40 pR32 ellipsis trns2 invPssSib br brLInvD br-primary brL-10 brHovL-20 brFoc-focus brFocL0 fn fn-primary-t"/>
+            <label class="elz d-grid grPos fn fnLInvD fn-primary-t fnL20 fnHovL10 fnFow-focus fnFowL0">
+              <input v-model="customer.patronymic" type="text" placeholder="Иванович" class="elz d-block grPin grY2 w100p borB2 h40 pR32 ellipsis trns2 invPssSib br brLInvD br-primary brL-10 brHovL-20 brFoc-focus brFocL0 fn fn-primary-t"/>
               <span class="elz d-flex grPin grY2 a-X borB2 evNone">
                 <span class="elz p-rel growZ d-flex a-PR">
-                  <span :class="user.patronymic ? $options._props.success.classList : ''" class="elz p-rel d-flex a-X s24 r2">
-                    <span :class="user.patronymic ? ' bgBef-CC' : ''" :style="user.patronymic ? $options._props.success.icon : ''" class="elz p-rel d-block mskBef s16 cFillBef"></span>
+                  <span :class="customer.patronymic ? styles.success.classList : ''" class="elz p-rel d-flex a-X s24 r2">
+                    <span :class="customer.patronymic ? ' bgBef-CC' : ''" :style="customer.patronymic ? styles.success.icon : ''" class="elz p-rel d-block mskBef s16 cFillBef"></span>
                   </span>
                 </span>
               </span>
@@ -67,12 +66,12 @@
             <div class="elz d-block">Дата рождения:</div>
           </div>
           <div class="elz d-block mL24">
-            <label :class="{evNone: finalState}" class="elz d-grid grPos fn fnLInvD fn-primary-t fnL20 fnHovL10 fnFow-focus fnFowL0">
-              <input v-model="user.birthdayDate" v-maska="'##.##.####'" type="text" placeholder="ДД.ММ.ГГГГ" class="elz d-block grPin grY2 w100p borB2 h40 pR32 ellipsis trns2 invPssSib br brLInvD br-primary brL-10 brHovL-20 brFoc-focus brFocL0 fn fn-primary-t"/>
+            <label class="elz d-grid grPos fn fnLInvD fn-primary-t fnL20 fnHovL10 fnFow-focus fnFowL0">
+              <input v-model="customer.birthdayDate" v-maska="'##.##.####'" type="text" placeholder="ДД.ММ.ГГГГ" class="elz d-block grPin grY2 w100p borB2 h40 pR32 ellipsis trns2 invPssSib br brLInvD br-primary brL-10 brHovL-20 brFoc-focus brFocL0 fn fn-primary-t"/>
               <span class="elz d-flex grPin grY2 a-X borB2 evNone">
                 <span class="elz p-rel growZ d-flex a-PR">
-                  <span ref="birthdayDate" :class="user.birthdayDate ? validationDate(user.birthdayDate, 'classList') : ''" class="elz p-rel d-flex a-X s24 r2">
-                    <span :class="user.birthdayDate ? ' bgBef-CC' : ''" :style="user.birthdayDate ? validationDate(user.birthdayDate, 'icon'): ''" class="elz p-rel d-block mskBef s16 cFillBef"></span>
+                  <span ref="birthdayDate" :class="customer.birthdayDate ? validationDate(customer.birthdayDate, 'classList') : ''" class="elz p-rel d-flex a-X s24 r2">
+                    <span :class="customer.birthdayDate ? ' bgBef-CC' : ''" :style="customer.birthdayDate ? validationDate(customer.birthdayDate, 'icon'): ''" class="elz p-rel d-block mskBef s16 cFillBef"></span>
                   </span>
                 </span>
               </span>
@@ -86,12 +85,12 @@
             <div class="elz d-block">Место рождения:</div>
           </div>
           <div class="elz d-block mL24">
-            <label :class="{evNone: finalState}" class="elz d-grid grPos fn fnLInvD fn-primary-t fnL20 fnHovL10 fnFow-focus fnFowL0">
-              <input v-model="user.birthdayPlace" v-maska="$options._validation.text" placeholder="г. Москва" class="elz d-block grPin grY2 w100p borB2 h40 pR32 ellipsis trns2 invPssSib br brLInvD br-primary brL-10 brHovL-20 brFoc-focus brFocL0 fn fn-primary-t"/>
+            <label class="elz d-grid grPos fn fnLInvD fn-primary-t fnL20 fnHovL10 fnFow-focus fnFowL0">
+              <input v-model="customer.birthdayPlace" v-maska="validation.text" placeholder="г. Москва" class="elz d-block grPin grY2 w100p borB2 h40 pR32 ellipsis trns2 invPssSib br brLInvD br-primary brL-10 brHovL-20 brFoc-focus brFocL0 fn fn-primary-t"/>
               <span class="elz d-flex grPin grY2 a-X borB2 evNone">
                 <span class="elz p-rel growZ d-flex a-PR">
-                  <span ref="birthdayPlace" :class="user.birthdayPlace ? validationText(user.birthdayPlace, 'classList', 4) : ''" class="elz p-rel d-flex a-X s24 r2">
-                    <span :class="user.birthdayPlace ? ' bgBef-CC' : ''" :style="user.birthdayPlace ? validationText(user.birthdayPlace, 'icon', 4) : ''" class="elz p-rel d-block mskBef s16 cFillBef"></span>
+                  <span ref="birthdayPlace" :class="customer.birthdayPlace ? validationText(customer.birthdayPlace, 'classList', 4) : ''" class="elz p-rel d-flex a-X s24 r2">
+                    <span :class="customer.birthdayPlace ? ' bgBef-CC' : ''" :style="customer.birthdayPlace ? validationText(customer.birthdayPlace, 'icon', 4) : ''" class="elz p-rel d-block mskBef s16 cFillBef"></span>
                   </span>
                 </span>
               </span>
@@ -107,7 +106,7 @@
           <div class="elz d-block">
             <div class="elz d-flex a-B">
               <div class="elz d-block grow mL24">
-                <label :class="{evNone: finalState}" class="elz d-grid grPos fn fnLInvD fn-primary-t fnL20 fnHovL10 fnFow-focus fnFowL0">
+                <label class="elz d-grid grPos fn fnLInvD fn-primary-t fnL20 fnHovL10 fnFow-focus fnFowL0">
                   <input v-model="passport.series" v-maska="'## ##'" type="text" placeholder="1234" class="elz d-block grPin grY2 w100p borB2 h40 pR32 ellipsis trns2 invPssSib br brLInvD br-primary brL-10 brHovL-20 brFoc-focus brFocL0 fn fn-primary-t"/>
                   <span class="elz d-flex grPin grY2 a-X borB2 evNone">
                     <span class="elz p-rel growZ d-flex a-PR">
@@ -123,7 +122,7 @@
                 <div class="elz d-block">Номер:</div>
               </div>
               <div class="elz d-block grow mL24">
-                <label :class="{evNone: finalState}" class="elz d-grid grPos fn fnLInvD fn-primary-t fnL20 fnHovL10 fnFow-focus fnFowL0">
+                <label class="elz d-grid grPos fn fnLInvD fn-primary-t fnL20 fnHovL10 fnFow-focus fnFowL0">
                   <input v-model="passport.number" v-maska="'### ###'" type="text" placeholder="567890" class="elz d-block grPin grY2 w100p borB2 h40 pR32 ellipsis trns2 invPssSib br brLInvD br-primary brL-10 brHovL-20 brFoc-focus brFocL0 fn fn-primary-t"/>
                   <span class="elz d-flex grPin grY2 a-X borB2 evNone">
                     <span class="elz p-rel growZ d-flex a-PR">
@@ -144,7 +143,7 @@
             <div class="elz d-block">Дата выдачи</div>
           </div>
           <div class="elz d-block mL24">
-            <label :class="{evNone: finalState}" class="elz d-grid grPos fn fnLInvD fn-primary-t fnL20 fnHovL10 fnFow-focus fnFowL0">
+            <label class="elz d-grid grPos fn fnLInvD fn-primary-t fnL20 fnHovL10 fnFow-focus fnFowL0">
               <input v-model="passport.issueDate" v-maska="'##.##.####'" type="text" placeholder="ДД.ММ.ГГГГ" class="elz d-block grPin grY2 w100p borB2 h40 pR32 ellipsis trns2 invPssSib br brLInvD br-primary brL-10 brHovL-20 brFoc-focus brFocL0 fn fn-primary-t"/>
               <span class="elz d-flex grPin grY2 a-X borB2 evNone">
                 <span class="elz p-rel growZ d-flex a-PR">
@@ -163,7 +162,7 @@
             <div class="elz d-block">Код подразделения:</div>
           </div>
           <div class="elz d-block mL24">
-            <label :class="{evNone: finalState}" class="elz d-grid grPos fn fnLInvD fn-primary-t fnL20 fnHovL10 fnFow-focus fnFowL0">
+            <label class="elz d-grid grPos fn fnLInvD fn-primary-t fnL20 fnHovL10 fnFow-focus fnFowL0">
               <input v-model="passport.ufmsCode" @input="validationUfmsCode" v-maska="'###-###'" type="text" placeholder="123-456" class="elz d-block grPin grY2 w100p borB2 h40 pR32 ellipsis trns2 invPssSib br brLInvD br-primary brL-10 brHovL-20 brFoc-focus brFocL0 fn fn-primary-t"/>
               <span class="elz d-flex grPin grY2 a-X borB2 evNone">
                 <span class="elz p-rel growZ d-flex a-PR">
@@ -182,8 +181,8 @@
             <div class="elz d-block">Кем выдан:</div>
           </div>
           <div class="elz p-rel d-block mL24">
-            <label :class="{evNone: finalState}" class="elz d-grid grPos fn fnLInvD fn-primary-t fnL20 fnHovL10 fnFow-focus fnFowL0">
-              <input v-model="passport.issueDepartment" v-maska="$options._validation.text" type="text" placeholder="Московским РОВД Южного округа" class="elz d-block grPin grY2 w100p borB2 h40 pR32 ellipsis trns2 invPssSib br brLInvD br-primary brL-10 brHovL-20 brFoc-focus brFocL0 fn fn-primary-t"/>
+            <label class="elz d-grid grPos fn fnLInvD fn-primary-t fnL20 fnHovL10 fnFow-focus fnFowL0">
+              <input v-model="passport.issueDepartment" v-maska="validation.text" type="text" placeholder="Московским РОВД Южного округа" class="elz d-block grPin grY2 w100p borB2 h40 pR32 ellipsis trns2 invPssSib br brLInvD br-primary brL-10 brHovL-20 brFoc-focus brFocL0 fn fn-primary-t"/>
               <span class="elz d-flex grPin grY2 a-X borB2 evNone">
                 <span class="elz p-rel growZ d-flex a-PR">
                   <span ref="issueDepartment" :class="passport.issueDepartment ? validationText(passport.issueDepartment, 'classList') : ''" class="elz p-rel d-flex a-X s24 r2">
@@ -208,8 +207,8 @@
             <div class="elz d-block">Адрес прописки:</div>
           </div>
           <div class="elz d-block mL24">
-            <label :class="{evNone: finalState}" class="elz d-grid grPos fn fnLInvD fn-primary-t fnL20 fnHovL10 fnFow-focus fnFowL0">
-              <input v-model="passport.registrationAddress" v-maska="$options._validation.text" placeholder="Москва, ул. 2я Хуторская д. 38А стр. 9" type="text" class="elz d-block grPin grY2 w100p borB2 h40 pR32 ellipsis trns2 invPssSib br brLInvD br-primary brL-10 brHovL-20 brFoc-focus brFocL0 fn fn-primary-t"/>
+            <label class="elz d-grid grPos fn fnLInvD fn-primary-t fnL20 fnHovL10 fnFow-focus fnFowL0">
+              <input v-model="passport.registrationAddress" v-maska="validation.text" placeholder="Москва, ул. 2я Хуторская д. 38А стр. 9" type="text" class="elz d-block grPin grY2 w100p borB2 h40 pR32 ellipsis trns2 invPssSib br brLInvD br-primary brL-10 brHovL-20 brFoc-focus brFocL0 fn fn-primary-t"/>
               <span class="elz d-flex grPin grY2 a-X borB2 evNone">
                 <span class="elz p-rel growZ d-flex a-PR">
                   <span ref="registrationAddress" :class="passport.registrationAddress ? validationText(passport.registrationAddress, 'classList', 5) : ''" class="elz p-rel d-flex a-X s24 r2">
@@ -234,14 +233,14 @@
             <div class="elz d-block">Мобильный телефон:</div>
           </div>
           <div class="elz d-block mL24">
-            <label :class="{evNone: finalState}" class="elz d-grid grPos fn fnLInvD fn-primary-t fnL20 fnHovL10 fnFow-focus fnFowL0">
-              <input ref="mobile" v-model="user.mobile" @keyup="validationMobile" :class="user.mobile ? mobileProps.classApproval : ''" v-maska="'+7 (###) ###-##-##'" placeholder="+7 (901) 12-34-567"  type="text"  class="elz d-block grPin grY2 w100p borB2 h40 pR32 ellipsis trns2 invPssSib br brLInvD br-primary brL-10 brHovL-20 brFoc-focus brFocL0 fn fn-primary-t"/>
+            <label class="elz d-grid grPos fn fnLInvD fn-primary-t fnL20 fnHovL10 fnFow-focus fnFowL0">
+              <input ref="mobile" v-model="customer.mobile" @keyup="validationMobile" :class="customer.mobile ? mobileProps.classApproval : ''" v-maska="'+7 (###) ###-##-##'" placeholder="+7 (901) 12-34-567"  type="text"  class="elz d-block grPin grY2 w100p borB2 h40 pR32 ellipsis trns2 invPssSib br brLInvD br-primary brL-10 brHovL-20 brFoc-focus brFocL0 fn fn-primary-t"/>
               <span class="elz d-flex grPin grY2 a-X borB2 evNone">
                 <span class="elz p-rel growZ d-flex a-PR">
-                  <span :class="user.mobile ? mobileProps.tooltip : ''" class="elz p-rel d-flex a-X r2 trns2 cur-help opHovOut">
-                    <span class="elz fn-8 bold al-right pH8 op0 opHovIn10 trns2 trnsVis oH ellipsis">{{ user.mobile ? mobileProps.mobile : '' }}</span>
+                  <span :class="customer.mobile ? mobileProps.tooltip : ''" class="elz p-rel d-flex a-X r2 trns2 cur-help opHovOut">
+                    <span class="elz fn-8 bold al-right pH8 op0 opHovIn10 trns2 trnsVis oH ellipsis">{{ customer.mobile ? mobileProps.mobile : '' }}</span>
                     <span class="elz p-rel d-flex a-X s24 r2 evAuto">
-                      <span :class="user.mobile ? ' bgBef-CC' : ''" :style="user.mobile ? mobileProps.icon : ''" class="elz p-rel d-block mskBef s16 cFillBef"></span>
+                      <span :class="customer.mobile ? ' bgBef-CC' : ''" :style="customer.mobile ? mobileProps.icon : ''" class="elz p-rel d-block mskBef s16 cFillBef"></span>
                     </span>
                   </span>
                 </span>
@@ -256,14 +255,14 @@
             <div class="elz d-block">E-Mail:</div>
           </div>
           <div class="elz d-block mL24">
-            <label :class="{evNone: finalState}" class="elz d-grid grPos fn fnLInvD fn-primary-t fnL20 fnHovL10 fnFow-focus fnFowL0">
-              <input ref="email" v-model="user.email" @keyup="validationEmail" :class="user.email ? emailProps.classApproval : ''" v-maska="$options._validation.email" type="text" placeholder="example@yandex.ru" class="elz d-block grPin grY2 w100p pR32 borB2 h40 pR32 ellipsis trns2 invPssSib br brLInvD br-primary brL-10 brHovL-20 brFoc-focus brFocL0 fn fn-primary-t"/>
+            <label class="elz d-grid grPos fn fnLInvD fn-primary-t fnL20 fnHovL10 fnFow-focus fnFowL0">
+              <input ref="email" v-model="customer.email" @keyup="validationEmail" :class="customer.email ? emailProps.classApproval : ''" v-maska="validation.email" type="text" placeholder="example@yandex.ru" class="elz d-block grPin grY2 w100p pR32 borB2 h40 pR32 ellipsis trns2 invPssSib br brLInvD br-primary brL-10 brHovL-20 brFoc-focus brFocL0 fn fn-primary-t"/>
               <span class="elz d-flex grPin grY2 a-X borB2 evNone">
                 <span class="elz p-rel growZ d-flex a-PR">
-                  <span :class="user.email ? emailProps.tooltip : ''" class="elz p-rel d-flex a-X r2 trns2 cur-help opHovOut">
-                    <span class="elz fn-8 bold al-right pH8 op0 opHovIn10 trns2 trnsVis oH ellipsis">{{ user.email ? emailProps.email : '' }}</span>
+                  <span :class="customer.email ? emailProps.tooltip : ''" class="elz p-rel d-flex a-X r2 trns2 cur-help opHovOut">
+                    <span class="elz fn-8 bold al-right pH8 op0 opHovIn10 trns2 trnsVis oH ellipsis">{{ customer.email ? emailProps.email : '' }}</span>
                     <span class="elz p-rel d-flex a-X s24 r2 evAuto">
-                      <span :class="user.email ? ' bgBef-CC' : ''" :style="user.email ? emailProps.icon : ''" class="elz p-rel d-block mskBef s16 cFillBef"></span>
+                      <span :class="customer.email ? ' bgBef-CC' : ''" :style="customer.email ? emailProps.icon : ''" class="elz p-rel d-block mskBef s16 cFillBef"></span>
                     </span>
                   </span>
                 </span>
@@ -277,7 +276,7 @@
     </div>
   </div>
 
-  <div v-if="!finalState" class="elz d-flex a-X mT48">
+  <div class="elz d-flex a-X mT48">
     <input :class="formIsValid ? '' : 'uDisabled'" class="elz d-block al-center r3 h48 pH32 w240 cur-pointer opAct07 bg bg-ok fn fn-ok-t" type="submit" value="Сохранить данные"/>
   </div>
 
@@ -289,55 +288,58 @@ import DaDataService from "@/services/DaDataService";
 export default {
   name: 'ClientForm',
 
-  _props: {
-    error: {
-      classApproval: '',
-      classList: 'fn fn-error',
-      icon: "--elzMsk: url('/style/icons/info.svg');",
-      tooltip: 'fn fn-error bgHov bgHov-error fnHov-error-t',
-      mobile: 'Телефон не подтвержден',
-      email: 'Электронный адрес не подтвержден'
-    },
-    success: {
-      classApproval: 'isValidValue',
-      classList: 'isValidValue fn fn-success',
-      icon: "--elzMsk: url('/style/icons/checkmark.svg')",
-      tooltip: 'fn fn-success bgHov bgHov-success fnHov-success-t',
-      mobile: 'Телефон подтвержден',
-      email: 'Электронный адрес подтвержден'
-    },
-    waiting: {
-      classApproval: 'isValidValue',
-      classList: 'isValidValue fn fn-primary-t',
-      icon: "--elzMsk: url('/style/icons/clock.svg')",
-      tooltip: 'fn fn-primary-t bgHov bgHov-primary-t fnHov-primary',
-      mobile: 'Телефон в процессе подтверждения',
-      email: 'Электронный адрес в процессе подтверждения'
-    }
-  },
-
-  _validation: {
-    email: {
-      mask: 'E*',
-      tokens: {
-        'E': {
-          pattern: /^[!#$%&'*+/=?^_`{|}~@\-.a-zA-Z0-9\s]+/
+  setup() {
+    return {
+      styles: {
+        error: {
+          classApproval: '',
+          classList: 'fn fn-error',
+          icon: "--elzMsk: url('/style/icons/info.svg');",
+          tooltip: 'fn fn-error bgHov bgHov-error fnHov-error-t',
+          mobile: 'Телефон не подтвержден',
+          email: 'Электронный адрес не подтвержден'
+        },
+        success: {
+          classApproval: 'isValidValue',
+          classList: 'isValidValue fn fn-success',
+          icon: "--elzMsk: url('/style/icons/checkmark.svg')",
+          tooltip: 'fn fn-success bgHov bgHov-success fnHov-success-t',
+          mobile: 'Телефон подтвержден',
+          email: 'Электронный адрес подтвержден'
+        },
+        waiting: {
+          classApproval: 'isValidValue',
+          classList: 'isValidValue fn fn-primary-t',
+          icon: "--elzMsk: url('/style/icons/clock.svg')",
+          tooltip: 'fn fn-primary-t bgHov bgHov-primary-t fnHov-primary',
+          mobile: 'Телефон в процессе подтверждения',
+          email: 'Электронный адрес в процессе подтверждения'
         }
-      }
-    },
-    text: {
-      mask: 'T*',
-      tokens: {
-        'T': {
-          pattern: /^[-_,.:а-яА-ЯёЁ0-9\s]+/u
-        }
-      }
-    },
-    word: {
-      mask: 'RR*',
-      tokens: {
-        'R': {
-          pattern: /[а-яёА-ЯЁ]+/u
+      },
+      validation: {
+        email: {
+          mask: 'E*',
+          tokens: {
+            'E': {
+              pattern: /^[!#$%&'*+/=?^_`{|}~@\-.a-zA-Z0-9\s]+/
+            }
+          }
+        },
+        text: {
+          mask: 'T*',
+          tokens: {
+            'T': {
+              pattern: /^[-_,.:а-яА-ЯёЁ0-9\s]+/u
+            }
+          }
+        },
+        word: {
+          mask: 'RR*',
+          tokens: {
+            'R': {
+              pattern: /[а-яёА-ЯЁ]+/u
+            }
+          }
         }
       }
     }
@@ -353,105 +355,94 @@ export default {
   },
 
   beforeMount() {
-    console.log('before mount');
-    console.log(this.user);
     this.defineProps('mobile', 'mobileApproved');
     this.defineProps('email', 'emailApproved');
   },
 
-  /*mounted() {
-    DaDataService.getCleanAddress('мск сухонска 11/-89');
-  },*/
-
   computed: {
-    finalState() {
-      return this.$store.state.appStates.fifth > 0;
-    },
     passport() {
-      return this.user.passport;
+      return this.customer.passport;
     },
-    user() {
-      return this.$store.state.userData;
-    },
+
+    customer() {
+      return this.$store.state.customerData;
+    }
   },
 
   methods: {
-
     defineSendButtonState() {
       console.log('define Send Button State');
-      this.formIsValid = (this.$refs.surname.classList.contains('isValidValue') && this.$refs.name.classList.contains('isValidValue')
-                       && this.$refs.birthdayDate.classList.contains('isValidValue') && this.$refs.birthdayPlace.classList.contains('isValidValue')
-                       && this.$refs.series.classList.contains('isValidValue') && this.$refs.number.classList.contains('isValidValue')
-                       && this.$refs.issueDate.classList.contains('isValidValue') && this.$refs.ufmsCode.classList.contains('isValidValue')
-                       && this.$refs.issueDepartment.classList.contains('isValidValue') && this.$refs.registrationAddress.classList.contains('isValidValue')
-                       && this.$refs.mobile.classList.contains('isValidValue') && this.$refs.email.classList.contains('isValidValue')
+      this.formIsValid = (
+          this.$refs.surname.classList.contains('isValidValue')
+          && this.$refs.name.classList.contains('isValidValue')
+          && this.$refs.birthdayDate.classList.contains('isValidValue')
+          && this.$refs.birthdayPlace.classList.contains('isValidValue')
+          && this.$refs.series.classList.contains('isValidValue')
+          && this.$refs.number.classList.contains('isValidValue')
+          && this.$refs.issueDate.classList.contains('isValidValue')
+          && this.$refs.ufmsCode.classList.contains('isValidValue')
+          && this.$refs.issueDepartment.classList.contains('isValidValue')
+          && this.$refs.registrationAddress.classList.contains('isValidValue')
+          && this.$refs.mobile.classList.contains('isValidValue')
+          && this.$refs.email.classList.contains('isValidValue')
       );
-      console.log(this.formIsValid);
-      console.log(this.$refs.email.classList.contains('isValidValue'));
     },
 
     defineProps(propKey, approvalStatus) {
-      this[`${propKey}Props`] = (this.user[approvalStatus] === 2) ? this.$options._props.success
-                    : (this.user[approvalStatus] === 1) ? this.$options._props.waiting
-                    : this.$options._props.error;
+      this[`${propKey}Props`] = (this.customer[approvalStatus] === 2) ? this.styles.success
+                    : (this.customer[approvalStatus] === 1) ? this.styles.waiting
+                    : this.styles.error;
     },
 
     updateIssueDepartment(index) {
       this.passport.issueDepartment = this.ufmsList[index].value;
       this.ufmsList = [];
-      setTimeout(()=> {
-        this.defineSendButtonState();
-      }, 500);
+      setTimeout(()=> this.defineSendButtonState(), 500);
     },
 
     validationDate(data, option) {
       const dateArr = data.split('.');
       const [mm, dd, yyyy] = dateArr;
       const date = new Date(`${dd}-${mm}-${yyyy}`);
-      return (data.length === 10 && date instanceof Date && !isNaN(date)) ? this.$options._props.success[option] : this.$options._props.error[option];
+      return (data.length === 10 && date instanceof Date && !isNaN(date)) ? this.styles.success[option] : this.styles.error[option];
     },
 
     validationEmail() {
-      console.log('email validation');
       const pattern = /[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?/;
-      let data = this.user.email.replace(/ +/g, '').trim();
+      let data = this.customer.email.replace(/ +/g, '').trim();
       this.emailProps = (data.match(pattern)) ? {
         classApproval: 'isValidValue',
-        icon: this.$options._props.success.icon,
-        tooltip: this.$options._props.waiting.tooltip,
-        email: this.$options._props.error.email
+        icon: this.styles.success.icon,
+        tooltip: this.styles.waiting.tooltip,
+        email: this.styles.error.email
       } : {
         classApproval: '',
-        icon: this.$options._props.error.icon,
-        tooltip: this.$options._props.error.tooltip,
+        icon: this.styles.error.icon,
+        tooltip: this.styles.error.tooltip,
         email: "Электронный адрес указан не корректно"
       }
-      console.log(this.emailProps);
-      setTimeout(()=> {
-        this.defineSendButtonState();
-      }, 500);
+      setTimeout(()=> this.defineSendButtonState(), 500);
     },
 
     validationMobile() {
-      this.user.mobileApproved = 0;
+      this.customer.mobileApproved = 0;
+      console.log(this.$refs.mobile.attributes['data-mask-raw-value'].value);
       this.mobileProps = (this.$refs.mobile.attributes['data-mask-raw-value'].value.length === 10) ? {
-        classList: 'isValidValue',
-        icon: this.$options._props.success.icon,
-        tooltip: this.$options._props.waiting.tooltip,
-        mobile: this.$options._props.error.mobile
+        classApproval: 'isValidValue',
+        icon: this.styles.success.icon,
+        tooltip: this.styles.waiting.tooltip,
+        mobile: this.styles.error.mobile
       } : {
-        classList: '',
-        icon: this.$options._props.error.icon,
-        tooltip: this.$options._props.error.tooltip,
+        classApproval: '',
+        icon: this.styles.error.icon,
+        tooltip: this.styles.error.tooltip,
         mobile: "Телефон указан не корректно"
       }
-      setTimeout(()=> {
-        this.defineSendButtonState();
-      }, 500);
+      setTimeout(()=> this.defineSendButtonState(), 500);
     },
 
     validationText(data, option, size = 2) {
-      return data.length >= size ? this.$options._props.success[option] : this.$options._props.error[option];
+      return data.length >= size ? this.styles.success[option] : this.styles.error[option];
     },
 
     async validationUfmsCode() {
@@ -460,14 +451,11 @@ export default {
         this.passport.issueDepartment = "";
         this.formIsValid = false;
       }
-    },
-
+    }
   }
 }
-
 </script>
 
 
 <style scoped>
-
 </style>

@@ -11,16 +11,17 @@ const apiClient = axios.create({
 
 export default {
 
-	getAppStates() {
-		return apiClient.get('/appStates');
+	getConnectionStatuses() {
+		return apiClient.get('/connectionStatuses');
 	},
 
-	getUserData() {
-		return apiClient.get('/userData');
+	getOrderDetails(orderId) {
+		console.log('get Order Details: ' + orderId);
+		return apiClient.get('/orderDetails');
 	},
 
-	getMeetingData() {
-		return apiClient.get('/meetingData');
+	getCustomerData() {
+		return apiClient.get('/customerData');
 	}
 }
 

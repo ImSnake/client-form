@@ -1,16 +1,26 @@
 <template>
 
-  <div v-if="isLoaded" class="elz cnnClientWrap mAuto pV48 pH24">
+  <div class="elz cnnClientWrap mAuto pV48 pH24">
 
-      <HeaderLogo />
+      <Header />
 
-      <div class="elz d-block mAuto wmx640">
+      <div v-if="dataIsReady" class="elz d-block mAuto wmx640">
 
-        <ClientProcess />
+        <OrderStatuses />
 
-        <ClientTitle />
+        <template v-if="isFinished">
 
-        <ClientForm />
+          <div>ОЦЕНКА!</div>
+
+        </template>
+
+        <template v-else>
+
+          <ClientTitle />
+
+          <ClientForm />
+
+        </template>
 
       </div>
 
@@ -19,35 +29,39 @@
 </template>
 
 <script>
-import ClientForm from '@/components/ClientForm.vue';
-import ClientProcess from '@/components/ClientProcess.vue';
+import Header from '@/components/Header.vue';
+import OrderStatuses from '@/components/OrderStatuses.vue';
 import ClientTitle from '@/components/ClientTitle.vue';
-import HeaderLogo from '@/components/HeaderLogo.vue';
+import ClientForm from '@/components/ClientForm.vue';
+
 
 export default {
   name: 'Home',
 
   components: {
-    ClientForm,
-    ClientProcess,
+    Header,
+    OrderStatuses,
     ClientTitle,
-    HeaderLogo
+    ClientForm
   },
 
-  created() {
-    this.$store.dispatch('fetchAppStates');
-    this.$store.dispatch('fetchMeetingData');
-    this.$store.dispatch('fetchUserData');
+  async created() {
+    const orderId = this.$store.state.orderId;
+    await this.$store.dispatch('fetchOrderDetails', orderId);
+    await this.$store.dispatch('fetchCustomerData', this.$store.state.orderDetails.customerSDId);
+    await this.$store.dispatch('fetchConnectionStatuses');
+    this.$store.state.readyState = true;
+    document.getElementById('connection').classList.remove('hydraLoader');
+    setInterval(()=> this.$store.dispatch('fetchOrderDetails', orderId) , 30000);
   },
 
   computed: {
-    isLoaded() {
-      if (this.$store.state.appStates && this.$store.state.userData && this.$store.state.meetingData) {
-        document.getElementById('connection').classList.remove('hydraLoader');
-        console.log(this.$store.state);
-        return true;
-      }
-      return false;
+    dataIsReady() {
+      return this.$store.state.readyState;
+    },
+
+    isFinished() {
+      return +this.$store.state.orderDetails.connectionStatusId === 5;
     }
   }
 
