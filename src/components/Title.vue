@@ -16,7 +16,7 @@
 
 <script>
 export default {
-  name: "ClientTitle",
+  name: "Title",
 
   computed: {
     customer() {

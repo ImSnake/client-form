@@ -26,7 +26,7 @@
 
 <script>
 export default {
-  name: "OrderStatuses",
+  name: "Statuses",
 
   setup() {
     return {

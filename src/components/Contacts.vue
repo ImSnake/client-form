@@ -286,7 +286,7 @@
 import DaDataService from "@/services/DaDataService";
 
 export default {
-  name: 'ClientForm',
+  name: 'Contacts',
 
   setup() {
     return {

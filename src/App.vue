@@ -6,19 +6,19 @@
 
       <div v-if="dataIsReady" class="elz d-block mAuto wmx640">
 
-        <OrderStatuses />
+        <Statuses />
 
         <template v-if="isFinished">
 
-          <div>ОЦЕНКА!</div>
+          <Estimation />
 
         </template>
 
         <template v-else>
 
-          <ClientTitle />
+          <Title />
 
-          <ClientForm />
+          <Contacts />
 
         </template>
 
@@ -29,10 +29,11 @@
 </template>
 
 <script>
-import Header from '@/components/Header.vue';
-import OrderStatuses from '@/components/OrderStatuses.vue';
-import ClientTitle from '@/components/ClientTitle.vue';
-import ClientForm from '@/components/ClientForm.vue';
+import Header     from '@/components/Header.vue';
+import Statuses   from '@/components/Statuses.vue';
+import Title      from '@/components/Title.vue';
+import Contacts   from '@/components/Contacts.vue';
+import Estimation from "@/components/Estimation";
 
 
 export default {
@@ -40,9 +41,10 @@ export default {
 
   components: {
     Header,
-    OrderStatuses,
-    ClientTitle,
-    ClientForm
+    Statuses,
+    Title,
+    Contacts,
+    Estimation
   },
 
   async created() {

@@ -4,7 +4,26 @@ import EventService from "@/services/EventService";
 export default createStore({
 
   state: {
-    orderId: '561361'
+    orderId: '561361',
+
+    questionList: [
+      {
+        text: "Оцените скорость подключения",
+        rating: ""
+      },
+      {
+        text: "Оцените работу инженера по подключению услуг",
+        rating: ""
+      },
+      {
+        text: "На сколько понятно была предоставлена консультации менеджером отдела продаж по услугам",
+        rating: ""
+      },
+      {
+        text: "Оцените ваше впечатление от обращения в компанию в целом",
+        rating: ""
+      }
+    ]
   },
 
   mutations: {
