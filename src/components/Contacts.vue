@@ -8,7 +8,7 @@
           <div class="elz infoTitle d-flex a-H hmn40 borB2 mL24 noShrink">
             <div class="elz d-block">Фамилия:</div>
           </div>
-          <div class="elz d-block mL24">
+          <div class="elz p-rel d-block mL24">
             <label class="elz d-grid grPos fn fnLInvD fn-primary-t fnL20 fnHovL10 fnFow-focus fnFowL0">
               <input v-model="customer.surname" v-maska="validation.word" type="text" placeholder="Иванов" class="elz d-block grPin grY2 w100p borB2 h40 ellipsis trns2 invPssSib br brLInvD br-primary brL-10 brHovL-20 brFoc-focus brFocL0 fn fn-primary-t"/>
               <span class="elz d-flex grPin grY2 a-X borB2 evNone">
@@ -27,7 +27,7 @@
           <div class="elz infoTitle d-flex a-H hmn40 borB2 mL24 noShrink">
             <div class="elz d-block">Имя:</div>
           </div>
-          <div class="elz d-block mL24">
+          <div class="elz p-rel d-block mL24">
             <label class="elz d-grid grPos fn fnLInvD fn-primary-t fnL20 fnHovL10 fnFow-focus fnFowL0">
               <input v-model="customer.name" v-maska="validation.word" type="text" placeholder="Иван" class="elz d-block grPin grY2 w100p borB2 h40 pR32 ellipsis trns2 invPssSib br brLInvD br-primary brL-10 brHovL-20 brFoc-focus brFocL0 fn fn-primary-t"/>
               <span class="elz d-flex grPin grY2 a-X borB2 evNone">
@@ -46,7 +46,7 @@
           <div class="elz infoTitle d-flex a-H hmn40 borB2 mL24 noShrink">
             <div class="elz d-block">Отчество:</div>
           </div>
-          <div class="elz d-block mL24">
+          <div class="elz p-rel d-block mL24">
             <label class="elz d-grid grPos fn fnLInvD fn-primary-t fnL20 fnHovL10 fnFow-focus fnFowL0">
               <input v-model="customer.patronymic" type="text" placeholder="Иванович" class="elz d-block grPin grY2 w100p borB2 h40 pR32 ellipsis trns2 invPssSib br brLInvD br-primary brL-10 brHovL-20 brFoc-focus brFocL0 fn fn-primary-t"/>
               <span class="elz d-flex grPin grY2 a-X borB2 evNone">
@@ -65,7 +65,7 @@
           <div class="elz infoTitle d-flex a-H hmn40 borB2 mL24 noShrink">
             <div class="elz d-block">Дата рождения:</div>
           </div>
-          <div class="elz d-block mL24">
+          <div class="elz p-rel d-block mL24">
             <label class="elz d-grid grPos fn fnLInvD fn-primary-t fnL20 fnHovL10 fnFow-focus fnFowL0">
               <input v-model="customer.birthdayDate" v-maska="'##.##.####'" type="text" placeholder="ДД.ММ.ГГГГ" class="elz d-block grPin grY2 w100p borB2 h40 pR32 ellipsis trns2 invPssSib br brLInvD br-primary brL-10 brHovL-20 brFoc-focus brFocL0 fn fn-primary-t"/>
               <span class="elz d-flex grPin grY2 a-X borB2 evNone">
@@ -84,7 +84,7 @@
           <div class="elz infoTitle d-flex a-H hmn40 borB2 mL24 noShrink">
             <div class="elz d-block">Место рождения:</div>
           </div>
-          <div class="elz d-block mL24">
+          <div class="elz p-rel d-block mL24">
             <label class="elz d-grid grPos fn fnLInvD fn-primary-t fnL20 fnHovL10 fnFow-focus fnFowL0">
               <input v-model="customer.birthdayPlace" v-maska="validation.text" placeholder="г. Москва" class="elz d-block grPin grY2 w100p borB2 h40 pR32 ellipsis trns2 invPssSib br brLInvD br-primary brL-10 brHovL-20 brFoc-focus brFocL0 fn fn-primary-t"/>
               <span class="elz d-flex grPin grY2 a-X borB2 evNone">
@@ -142,7 +142,7 @@
           <div class="elz infoTitle d-flex a-H hmn40 borB2 mL24 noShrink">
             <div class="elz d-block">Дата выдачи</div>
           </div>
-          <div class="elz d-block mL24">
+          <div class="elz p-rel d-block mL24">
             <label class="elz d-grid grPos fn fnLInvD fn-primary-t fnL20 fnHovL10 fnFow-focus fnFowL0">
               <input v-model="passport.issueDate" v-maska="'##.##.####'" type="text" placeholder="ДД.ММ.ГГГГ" class="elz d-block grPin grY2 w100p borB2 h40 pR32 ellipsis trns2 invPssSib br brLInvD br-primary brL-10 brHovL-20 brFoc-focus brFocL0 fn fn-primary-t"/>
               <span class="elz d-flex grPin grY2 a-X borB2 evNone">
@@ -161,7 +161,7 @@
           <div class="elz infoTitle d-flex a-H hmn40 borB2 mL24 noShrink">
             <div class="elz d-block">Код подразделения:</div>
           </div>
-          <div class="elz d-block mL24">
+          <div class="elz p-rel d-block mL24">
             <label class="elz d-grid grPos fn fnLInvD fn-primary-t fnL20 fnHovL10 fnFow-focus fnFowL0">
               <input v-model="passport.ufmsCode" @input="validationUfmsCode" v-maska="'###-###'" type="text" placeholder="123-456" class="elz d-block grPin grY2 w100p borB2 h40 pR32 ellipsis trns2 invPssSib br brLInvD br-primary brL-10 brHovL-20 brFoc-focus brFocL0 fn fn-primary-t"/>
               <span class="elz d-flex grPin grY2 a-X borB2 evNone">
@@ -206,9 +206,9 @@
           <div class="elz infoTitle d-flex a-H hmn40 borB2 mL24 noShrink">
             <div class="elz d-block">Адрес прописки:</div>
           </div>
-          <div class="elz d-block mL24">
+          <div class="elz p-rel d-block mL24">
             <label class="elz d-grid grPos fn fnLInvD fn-primary-t fnL20 fnHovL10 fnFow-focus fnFowL0">
-              <input v-model="passport.registrationAddress" v-maska="validation.text" placeholder="Москва, ул. 2я Хуторская д. 38А стр. 9" type="text" class="elz d-block grPin grY2 w100p borB2 h40 pR32 ellipsis trns2 invPssSib br brLInvD br-primary brL-10 brHovL-20 brFoc-focus brFocL0 fn fn-primary-t"/>
+              <input v-model="passport.registrationAddress" @keyup="validationAddress" v-maska="validation.text" placeholder="Москва, ул. 2я Хуторская д. 38А стр. 9" type="text" class="elz d-block grPin grY2 w100p borB2 h40 pR32 ellipsis trns2 invPssSib br brLInvD br-primary brL-10 brHovL-20 brFoc-focus brFocL0 fn fn-primary-t"/>
               <span class="elz d-flex grPin grY2 a-X borB2 evNone">
                 <span class="elz p-rel growZ d-flex a-PR">
                   <span ref="registrationAddress" :class="passport.registrationAddress ? validationText(passport.registrationAddress, 'classList', 5) : ''" class="elz p-rel d-flex a-X s24 r2">
@@ -218,6 +218,33 @@
               </span>
               <span class="elz infoLabel d-block fn-8 trns2 invPssLing">Адрес прописки</span>
             </label>
+            <div v-if="addressList.length" class="elz p-abs p-H d-block oAuto r3 mT2 hmx320 bgp bor1 z10 bsh-default4 br br-black brA10 bg bg-primary bgL10">
+              <div class="elz d-block pV8 lh12">
+                <div v-for="(item, index) in addressList" :key="index" @click="updateAddress(index)" class="elz p-rel d-flex pV8 pH16 a-H cur-pointer opAct07 bgHov bgHov-ok fnHov fnHov-ok-t">
+                  <div class="elz d-block growX">{{ item.value }}</div>
+                </div>
+              </div>
+            </div>
+            <div class="elz d-flex f-wrap gap16 mT16">
+              <label class="elz d-grid grPos w48 grow fn fnLInvD fn-primary-t fnL20 fnHovL10 fnFow-focus fnFowL0">
+                <input type="text" value="" placeholder="Подъезд" class="elz d-block grPin grY2 w100p borB2 h40 ellipsis trns2 invPssSib
+                                                                                        br brLInvD br-primary brL-10 brHovL-20 brFoc-focus brFocL0
+                                                                                        fn fn-primary-t" />
+                <span class="elz infoLabel d-block fn-8 trns2 invPssLing">Подъезд</span>
+              </label>
+              <label class="elz d-grid grPos w48 grow fn fnLInvD fn-primary-t fnL20 fnHovL10 fnFow-focus fnFowL0">
+                <input type="text" value="" placeholder="Этаж" class="elz d-block grPin grY2 w100p borB2 h40 ellipsis trns2 invPssSib
+                                                                                        br brLInvD br-primary brL-10 brHovL-20 brFoc-focus brFocL0
+                                                                                        fn fn-primary-t" />
+                <span class="elz infoLabel d-block fn-8 trns2 invPssLing">Этаж</span>
+              </label>
+              <label class="elz d-grid grPos w48 grow fn fnLInvD fn-primary-t fnL20 fnHovL10 fnFow-focus fnFowL0">
+                <input type="text" value="" placeholder="Квартира" class="elz d-block grPin grY2 w100p borB2 h40 ellipsis trns2 invPssSib
+                                                                                        br brLInvD br-primary brL-10 brHovL-20 brFoc-focus brFocL0
+                                                                                        fn fn-primary-t" />
+                <span class="elz infoLabel d-block fn-8 trns2 invPssLing">Квартира</span>
+              </label>
+            </div>
           </div>
         </div>
 
@@ -232,7 +259,7 @@
           <div class="elz infoTitle d-flex a-H hmn40 borB2 mL24 noShrink">
             <div class="elz d-block">Мобильный телефон:</div>
           </div>
-          <div class="elz d-block mL24">
+          <div class="elz p-rel d-block mL24">
             <label class="elz d-grid grPos fn fnLInvD fn-primary-t fnL20 fnHovL10 fnFow-focus fnFowL0">
               <input ref="mobile" v-model="customer.mobile" @keyup="validationMobile" :class="customer.mobile ? mobileProps.classApproval : ''" v-maska="'+7 (###) ###-##-##'" placeholder="+7 (901) 12-34-567"  type="text"  class="elz d-block grPin grY2 w100p borB2 h40 pR32 ellipsis trns2 invPssSib br brLInvD br-primary brL-10 brHovL-20 brFoc-focus brFocL0 fn fn-primary-t"/>
               <span class="elz d-flex grPin grY2 a-X borB2 evNone">
@@ -254,7 +281,7 @@
           <div class="elz infoTitle d-flex a-H hmn40 borB2 mL24 noShrink">
             <div class="elz d-block">E-Mail:</div>
           </div>
-          <div class="elz d-block mL24">
+          <div class="elz p-rel d-block mL24">
             <label class="elz d-grid grPos fn fnLInvD fn-primary-t fnL20 fnHovL10 fnFow-focus fnFowL0">
               <input ref="email" v-model="customer.email" @keyup="validationEmail" :class="customer.email ? emailProps.classApproval : ''" v-maska="validation.email" type="text" placeholder="example@yandex.ru" class="elz d-block grPin grY2 w100p pR32 borB2 h40 pR32 ellipsis trns2 invPssSib br brLInvD br-primary brL-10 brHovL-20 brFoc-focus brFocL0 fn fn-primary-t"/>
               <span class="elz d-flex grPin grY2 a-X borB2 evNone">
@@ -350,6 +377,7 @@ export default {
       formIsValid: false,
       emailProps: {},
       mobileProps: {},
+      addressList: [],
       ufmsList: []
     }
   },
@@ -394,6 +422,12 @@ export default {
                     : this.styles.error;
     },
 
+    updateAddress(index) {
+      this.passport.registrationAddress = this.addressList[index].value;
+      this.addressList = [];
+      setTimeout(()=> this.defineSendButtonState(), 500);
+    },
+
     updateIssueDepartment(index) {
       this.passport.issueDepartment = this.ufmsList[index].value;
       this.ufmsList = [];
@@ -402,9 +436,9 @@ export default {
 
     validationDate(data, option) {
       const dateArr = data.split('.');
-      const [mm, dd, yyyy] = dateArr;
-      const date = new Date(`${dd}-${mm}-${yyyy}`);
-      return (data.length === 10 && date instanceof Date && !isNaN(date)) ? this.styles.success[option] : this.styles.error[option];
+      const [dd, mm, yyyy] = dateArr;
+      const date = new Date(`${yyyy}-${mm}-${dd}T00:00:00`);
+      return (!isNaN(date.getTime())) ? this.styles.success[option] : this.styles.error[option];
     },
 
     validationEmail() {
@@ -450,6 +484,15 @@ export default {
         this.ufmsList = (await DaDataService.getFmsUnits(this.passport.ufmsCode)).suggestions;  //  '660-042' , '772-050'
         this.passport.issueDepartment = "";
         this.formIsValid = false;
+      }
+    },
+
+    async validationAddress() {
+      if (this.passport.registrationAddress.length >= 3) {
+        console.log('validation Address');
+        this.addressList = (await DaDataService.getSuggestionAddress(this.passport.registrationAddress)).suggestions;
+        //this.formIsValid = false;
+        console.log(this.addressList);
       }
     }
   }

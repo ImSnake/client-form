@@ -37,6 +37,7 @@ export default createStore({
 
     UPDATE_ORDER_DETAILS(state, data) {
       state.orderDetails = data;
+      console.log(state);
     }
   },
 
